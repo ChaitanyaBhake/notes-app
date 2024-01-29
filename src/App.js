@@ -37,9 +37,9 @@ function App() {
 
 
   //Screen-Setter
-  const [isBigScreen, setBigScreen] = useState(window.innerWidth > 700);
+  const [isBigScreen, setBigScreen] = useState(window.innerWidth > 650);
   const updateScreenSize = () => {
-    setBigScreen(window.innerWidth > 700)
+    setBigScreen(window.innerWidth > 650)
   }
   useEffect(() => {
     window.addEventListener("resize", updateScreenSize);
@@ -53,7 +53,7 @@ function App() {
   let [openGroupPopUP, setOpenGroupPopUp] = useState(false)
 
   
-  let [groups, setGroups] = useState([]);
+  
 
 
   // useRef hook is used to track the name of group which user entered
@@ -115,7 +115,7 @@ function App() {
         isBigScreen ?
           <>
             <div className='groupSecDiv'>
-              <GroupsSec setOpenGroupPopUp={setOpenGroupPopUp} setGroups={setGroups} everyGroup={everyGroup} setSelectedGroup={setSelectedGroup} selectedGroup={selectedGroup} />
+              <GroupsSec setOpenGroupPopUp={setOpenGroupPopUp} everyGroup={everyGroup} setSelectedGroup={setSelectedGroup} selectedGroup={selectedGroup} />
             </div>
 
             <div className='notesListDiv'>
@@ -128,7 +128,7 @@ function App() {
           (selectedGroup ?
             <ListOfNotes isBigScreen={isBigScreen} selectedGroup={selectedGroup} setSelectedGroup={setSelectedGroup} everyGroup={everyGroup} />
             :
-            <GroupsSec setOpenGroupPopUp={setOpenGroupPopUp} setGroups={setGroups} everyGroup={everyGroup} setSelectedGroup={setSelectedGroup} selectedGroup={selectedGroup} />
+            <GroupsSec setOpenGroupPopUp={setOpenGroupPopUp} everyGroup={everyGroup} setSelectedGroup={setSelectedGroup} selectedGroup={selectedGroup} />
           )
       }
 
